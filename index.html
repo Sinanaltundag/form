@@ -1,12 +1,211 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>İlk Formumuz</title>
-</head>
-<body>
-    <h1>Hoşgeldiniz</h1>
-</body>
+    <link rel="stylesheet" href="intlTelInput.min.css" />
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+      }
+      body {
+        background-color: black;
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: blueviolet;
+        margin: 20px;
+      }
+
+      #container {
+        width: 500px;
+        margin: auto;
+        background-color: black;
+      }
+      .sol {
+        background-color: aqua;
+        display: inline-block;
+        width: 40%;
+        text-align: right;
+        height: 120px;
+        padding: 15px;
+      }
+      .sag {
+        background-color: bisque;
+
+        display: inline-block;
+        width: 40%;
+        height: 120px;
+        padding: 15px;
+
+        padding: 15px;
+        padding-top: 16px;
+      }
+      .inputs {
+        margin-bottom: 5px;
+        padding-top: 15px;
+      }
+      #ustsol {
+        border-radius: 60% 30% 0%;
+        background-image: linear-gradient(to left top, yellow, pink, purple);
+      }
+      #ustsag {
+        border-radius: 30% 60% 30% 0%;
+        background-image: linear-gradient(to right top, yellow, pink, purple);
+      }
+      #altsol {
+        border-radius: 30% 0% 30% 60%;
+        background-image: linear-gradient(to right top, purple, pink, yellow);
+      }
+      #altsag {
+        border-radius: 0% 30% 60%;
+        background-image: linear-gradient(to left top, purple, pink, yellow);
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div id="container">
+        <h1>Hoşgeldiniz</h1>
+        <div>
+          <h2>Kayıt olmak için aşağıdaki bilgileri doldurun.</h2>
+        </div>
+        <div class="sol" id="ustsol">
+          <div class="inputs">
+            <label for="username">Kullanıcı adı :</label>
+          </div>
+          <div class="inputs">
+            <label for="email">Email :</label>
+          </div>
+          <div class="inputs">
+            <label for="pass">Parola :</label>
+          </div>
+        </div>
+        <div class="sag" id="ustsag">
+          <div class="inputs">
+            <input
+              type="text"
+              id="username"
+              placeholder="Kullanıcı adı giriniz..."
+              required
+            />
+          </div>
+          <div class="inputs">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email adresinizi giriniz..."
+              required
+            />
+          </div>
+          <div class="inputs">
+            <input
+              type="password"
+              name="password"
+              id="pass"
+              placeholder="En az 8 karakter"
+              minlength="8"
+            />
+          </div>
+        </div>
+        <div class="sol" id="altsol">
+          <div class="inputs">
+            <label for="adsoyad">Adınız ve Soyadınız :</label>
+          </div>
+          <div class="inputs">
+            <label for="adsoyad">Cinsiyet :</label>
+          </div>
+          <div class="inputs">
+            <label for="adsoyad">Doğum Tarihiniz :</label>
+          </div>
+          
+        </div>
+        <div class="sag" id="altsag">
+          <div class="inputs"><input type="text" id="adsoyad" /></div>
+          <div class="inputs">
+              <label for="e">Erkek</label>
+              <input type="radio" name="cinsiyet" id="e" value="Erkek">
+              <label for="k">Kadın</label>
+              <input type="radio" name="cinsiyet" id="k" value="Kadin">
+        </div>
+        <div class="inputs">
+            <input type="date" name="dogum" id="dogum" min="2015-01-01">
+        </div>
+          
+        </div>
+        <div class="sol">
+          <h4>Adres bilgileriniz</h4>
+          <div class="inputs">
+            <label for="il">Şehir :</label>
+          </div>
+          <div class="inputs">
+            <label for="ilce">İlçe :</label>
+          </div>
+          <div class="inputs">
+            <label for="adres">Mahalle, cadde, apt... :</label>
+          </div>
+        </div>
+        <div class="sag">
+          <div><h4 style="color: transparent">Satır düzeltme</h4></div>
+          <div class="inputs">
+            <select name="il" id="il">
+              <option value="34">İstanbul</option>
+              <option value="06">Ankara</option>
+              <option value="14">Bolu</option>
+              <option value="61">Trabzon</option>
+            </select>
+          </div>
+          <div class="inputs">
+            <select name="ilce" id="ilce">
+              <option value="01">Adalar</option>
+              <option value="07">Kartal</option>
+              <option value="14">Esenyurt</option>
+              <option value="19">Sancaktepe</option>
+            </select>
+          </div>
+          <div class="inputs">
+            <input type="text" id="adres" style="width: 100%" />
+          </div>
+        </div>
+        <div class="sol">
+            <div class="inputs"><label for="tel">Telefon No :</label></div>
+        </div>
+        <div class="sag">
+            <div class="inputs">
+                <input id="telefon" name="telefon" type="tel">
+<script>
+// Javascript ile input id'sinden inputu değişkene ata 
+var telefonKodu = document.querySelector("#telefon");
+window.intlTelInput(telefonKodu,({
+  // bu alana özel ayarlar ekleyebilirsiniz
+  initialCountry: "tr"
+}));
+
+// seçilen ülkenin telefon kodunu input içine yazdır
+$(document).ready(function() {
+  $('.iti__flag-container').click(function() { 
+    var countryCode = $('.iti__selected-flag').attr('title');
+    var countryCode = countryCode.replace(/[^0-9]/g,'')
+    $('#telefon').val("");
+    $('#telefon').val("+"+countryCode+" "+ $('#telefon').val());
+  });
+});
+</script> 
+            </div>
+        </div>
+        <div class="sol">
+          <label for=""></label>
+        </div>
+        <div class="sag"></div>
+      </div>
+    </form>
+    
+    <script src="jquery-3.5.1.min.js"></script>
+<script src="intlTelInput.min.js"></script> 
+  </body>
 </html>
